@@ -59,4 +59,4 @@ set -o xtrace
 git merge $NO_FF --no-edit $INPUT_STABLE_BRANCH
 
 # Push the branch
-git push --force-with-lease origin $INPUT_DEVELOPMENT_BRANCH
+git push origin $INPUT_DEVELOPMENT_BRANCH
