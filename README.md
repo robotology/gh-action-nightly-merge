@@ -19,7 +19,7 @@ on:
     - cron:  '*/0 0 * * *'
 
 jobs:
-  automerge:
+  nightly-merge:
 
     runs-on: ubuntu-latest
 
@@ -40,3 +40,4 @@ At the moment:
 * The stable branch name must be `master`
 * The development branch name must be `devel`
 * The actions will probably start also on forks if the actions are enabled for the forks.
+* The actions will always create a merge commit even if fast-forward could be used (`git merge --no-ff`).

@@ -35,5 +35,6 @@ if git merge-base --is-ancestor $STABLE_BRANCH $DEVELOPMENT_BRANCH; then
 fi;
 
 # do the merge
-git merge --no-edit $STABLE_BRANCH
+# FIXME "--no-ff should be configurable"
+git merge --no-ff --no-edit $STABLE_BRANCH
 git push --force-with-lease origin $DEVELOPMENT_BRANCH
