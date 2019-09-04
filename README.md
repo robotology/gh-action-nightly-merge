@@ -24,16 +24,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@v1
 
     - name: Nightly Merge
-      uses: robotology/gh-action-nightly-merge@master
+      uses: robotology/gh-action-nightly-merge@v1
       with:
         stable_branch: 'master'
         development_branch: 'devel'
         allow_ff: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Even though this action was created to run as a scheduled workflow,
+[`on`](https://help.github.com/en/articles/workflow-syntax-for-github-actions#on)
+can be replaced by any other trigger.
+For example, this will run the action whenever something is pushed on the
+`master` branch:
+
+```yml
+on:
+  push:
+    branches:
+      - master
 ```
 
 ## Parameters
