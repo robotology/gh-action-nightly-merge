@@ -21,7 +21,7 @@ fi
 
 git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
 git config --global user.email "actions@github.com"
-git config --global user.name "GitHub Merge Action"
+git config --global user.name "GitHub Nightly Merge Action"
 
 set -o xtrace
 
