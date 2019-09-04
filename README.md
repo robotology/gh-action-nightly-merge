@@ -1,4 +1,4 @@
-# gh-action-auto-merge
+# Nightly Merge Action
 
 Automatically merge the stable branch into the development one.
 
@@ -28,7 +28,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Nightly Merge
-      uses: robotology/gh-action-nightly-merge@v1
+      uses: robotology/gh-action-nightly-merge@v1.0.0
       with:
         stable_branch: 'master'
         development_branch: 'devel'
