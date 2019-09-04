@@ -40,18 +40,16 @@ jobs:
 
 ### `stable_branch`
 
-The name of the stable branch (default `master`)
+The name of the stable branch (default `master`).
 
 ### `development_branch`
 
-The name of the development branch (default `devel`)
+The name of the development branch (default `devel`).
 
 ### `allow_ff`
 
 Allow fast forward merge (default `false`). If not enabled, merges will use `--no-ff`.
 
+### `allow_forks`
 
-## Warnings
-
-This is a work in progress.
-At the moment the actions will probably start also on forks if the actions are enabled for the forks.
+Allow action to run on forks (default `false`).

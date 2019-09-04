@@ -17,6 +17,10 @@ inputs:
     description: 'Allow fast forward merge'
     required: false
     default: false
+  allow_forks:
+    description: 'Allow action to run on forks'
+    required: false
+    default: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
