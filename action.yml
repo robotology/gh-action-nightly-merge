@@ -1,0 +1,24 @@
+name: 'Nightly Merge'
+description: 'Automatically merge the stable branch into the development one.'
+author: 'Daniele E. Domenichelli'
+branding:
+  icon: 'git-merge'
+  color: 'orange'
+inputs:
+  stable_branch:
+    description: 'Name of the stable branch'
+    required: false
+    default: 'master'
+  development_branch:
+    description: 'Name of the development branch'
+    required: false
+    default: 'devel'
+  allow_ff:
+    description: 'Allow fast forward merge'
+    required: false
+    default: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.myInput }}

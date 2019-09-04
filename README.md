@@ -28,16 +28,30 @@ jobs:
 
     - name: Nightly Merge
       uses: robotology/gh-action-nightly-merge@master
+      with:
+        stable_branch: 'master'
+        development_branch: 'devel'
+        allow_ff: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+## Parameters
+
+### `stable_branch`
+
+The name of the stable branch (default `master`)
+
+### `development_branch`
+
+The name of the development branch (default `devel`)
+
+### `allow_ff`
+
+Allow fast forward merge (default `false`). If not enabled, merges will use `--no-ff`.
+
+
 ## Warnings
 
 This is a work in progress.
-At the moment:
-
-* The stable branch name must be `master`
-* The development branch name must be `devel`
-* The actions will probably start also on forks if the actions are enabled for the forks.
-* The actions will always create a merge commit even if fast-forward could be used (`git merge --no-ff`).
+At the moment the actions will probably start also on forks if the actions are enabled for the forks.
