@@ -2,6 +2,9 @@
 
 Automatically merge the stable branch into the development one.
 
+If the merge is not necessary, the action will do nothing.
+If the merge fails due to conflicts, the action will fail, and the repository
+maintainer should perform the merge manually.
 
 ## Installation
 
