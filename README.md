@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Automatic Merge
+    - name: Nightly Merge
       uses: robotology/gh-action-nightly-merge@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
