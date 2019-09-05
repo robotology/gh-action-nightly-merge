@@ -16,7 +16,7 @@ name: 'Nightly Merge'
 
 on:
   schedule:
-    - cron:  '*/0 0 * * *'
+    - cron:  '0 0 * * *'
 
 jobs:
   nightly-merge:
