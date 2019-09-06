@@ -67,3 +67,11 @@ Allow fast forward merge (default `false`). If not enabled, merges will use `--n
 ### `allow_forks`
 
 Allow action to run on forks (default `false`).
+
+### `user_name`
+
+User name for git commits (default `GitHub Nightly Merge Action`).
+
+### `user_email`
+
+User email for git commits (default `actions@github.com`).

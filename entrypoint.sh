@@ -13,6 +13,8 @@ echo "    - stable_branch = '$INPUT_STABLE_BRANCH'"
 echo "    - development_branch = '$INPUT_DEVELOPMENT_BRANCH'"
 echo "    - allow_ff = $INPUT_ALLOW_FF"
 echo "    - allow_forks = $INPUT_ALLOW_FORKS"
+echo "    - user_name = $INPUT_USER_NAME"
+echo "    - user_email = $INPUT_USER_EMAIL"
 echo
 
 NO_FF="--no-ff"
@@ -32,8 +34,8 @@ if ! $INPUT_ALLOW_FORKS; then
 fi
 
 git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
-git config --global user.email "actions@github.com"
-git config --global user.name "GitHub Nightly Merge Action"
+git config --global user.name "$INPUT_USER_NAME"
+git config --global user.email "$INPUT_USER_EMAIL"
 
 set -o xtrace
 
