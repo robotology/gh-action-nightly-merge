@@ -87,7 +87,7 @@ value will be printed in the logs.
 The `GITHUB_TOKEN` is still used for API calls, therefore both token should be
 available.
 
-```
+```yml
       with:
         push_token: 'FOO_TOKEN'
       env:
