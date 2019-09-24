@@ -17,6 +17,10 @@ inputs:
     description: 'Allow fast forward merge'
     required: false
     default: false
+  ff_only:
+    description: 'Refuse to perform a non fast forward merge (requires allow_ff=true)'
+    required: false
+    default: false
   allow_forks:
     description: 'Allow action to run on forks'
     required: false

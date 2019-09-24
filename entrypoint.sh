@@ -7,6 +7,7 @@ echo "  'Nightly Merge Action' is using the following input:"
 echo "    - stable_branch = '$INPUT_STABLE_BRANCH'"
 echo "    - development_branch = '$INPUT_DEVELOPMENT_BRANCH'"
 echo "    - allow_ff = $INPUT_ALLOW_FF"
+echo "    - ff_only = $INPUT_FF_ONLY"
 echo "    - allow_forks = $INPUT_ALLOW_FORKS"
 echo "    - user_name = $INPUT_USER_NAME"
 echo "    - user_email = $INPUT_USER_EMAIL"
@@ -18,9 +19,12 @@ if [[ -z "${!INPUT_PUSH_TOKEN}" ]]; then
   exit 1
 fi
 
-NO_FF="--no-ff"
+FF_MODE="--no-ff"
 if $INPUT_ALLOW_FF; then
-  NO_FF=""
+  FF_MODE="--ff"
+  if $INPUT_FF_ONLY; then
+    FF_MODE="--ff-only"
+  fi
 fi
 
 if ! $INPUT_ALLOW_FORKS; then
@@ -63,7 +67,7 @@ echo
 set -o xtrace
 
 # Do the merge
-git merge $NO_FF --no-edit $INPUT_STABLE_BRANCH
+git merge $FF_MODE --no-edit $INPUT_STABLE_BRANCH
 
 # Push the branch
 git push origin $INPUT_DEVELOPMENT_BRANCH

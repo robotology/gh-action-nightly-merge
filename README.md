@@ -65,6 +65,12 @@ The name of the development branch (default `devel`).
 Allow fast forward merge (default `false`). If not enabled, merges will use
 `--no-ff`.
 
+### `ff_only`
+
+Refuse to merge and exit unless the current HEAD is already up to date or the
+merge can be resolved as a fast-forward (default `false`).
+Used only if `allow_ff=false`.
+
 ### `allow_forks`
 
 Allow action to run on forks (default `false`).
