@@ -69,7 +69,7 @@ Allow fast forward merge (default `false`). If not enabled, merges will use
 
 Refuse to merge and exit unless the current HEAD is already up to date or the
 merge can be resolved as a fast-forward (default `false`).
-Used only if `allow_ff=false`.
+Requires `allow_ff=true`.
 
 ### `allow_forks`
 
