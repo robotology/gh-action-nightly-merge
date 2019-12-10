@@ -67,7 +67,7 @@ Allow fast forward merge (default `false`). If not enabled, merges will use
 
 ### `allow_git_lfs`
 
-All support for repositories that use `git lfs` (default `false`). 
+Allow support for repositories that use `git lfs` (default `false`). 
 
 ### `ff_only`
 
