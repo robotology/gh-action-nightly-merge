@@ -70,6 +70,7 @@ set -o xtrace
 # Do the merge
 git merge $FF_MODE --no-edit $INPUT_STABLE_BRANCH
 
+# Pull lfs if enabled
 if $INPUT_GIT_LFS; then
   git lfs pull
 fi
