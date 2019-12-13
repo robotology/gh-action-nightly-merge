@@ -17,6 +17,10 @@ inputs:
     description: 'Allow fast forward merge'
     required: false
     default: false
+  allow_git_lfs:
+    description: 'Allow git lfs support'
+    required: false
+    default: false
   ff_only:
     description: 'Refuse to perform a non fast forward merge (requires allow_ff=true)'
     required: false

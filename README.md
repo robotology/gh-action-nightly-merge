@@ -65,6 +65,10 @@ The name of the development branch (default `devel`).
 Allow fast forward merge (default `false`). If not enabled, merges will use
 `--no-ff`.
 
+### `allow_git_lfs`
+
+Allow support for repositories that use `git lfs` (default `false`). 
+
 ### `ff_only`
 
 Refuse to merge and exit unless the current HEAD is already up to date or the
