@@ -50,7 +50,8 @@ git config --global user.email "$INPUT_USER_EMAIL"
 set -o xtrace
 
 git fetch origin $INPUT_STABLE_BRANCH
-git checkout -b $INPUT_STABLE_BRANCH origin/$INPUT_STABLE_BRANCH
+#git checkout -b $INPUT_STABLE_BRANCH origin/$INPUT_STABLE_BRANCH
+git checkout $INPUT_STABLE_BRANCH 2>/dev/null ||git checkout -b $INPUT_STABLE_BRANCH origin/$INPUT_STABLE_BRANCH
 
 git fetch origin $INPUT_DEVELOPMENT_BRANCH
 git checkout -b $INPUT_DEVELOPMENT_BRANCH origin/$INPUT_DEVELOPMENT_BRANCH
