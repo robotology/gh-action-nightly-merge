@@ -72,10 +72,10 @@ set -o xtrace
 git merge $FF_MODE --no-edit $INPUT_STABLE_BRANCH
 
 # Pull lfs if enabled
-if $INPUT_GIT_LFS; then
-  git lfs install
-  git lfs pull
-fi
+#if $INPUT_GIT_LFS; then
+#  git lfs install
+#  git lfs pull
+#fi
 
 # Push the branch
 git push origin $INPUT_DEVELOPMENT_BRANCH
