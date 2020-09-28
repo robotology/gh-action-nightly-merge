@@ -16,14 +16,9 @@ echo "    - push_token = $INPUT_PUSH_TOKEN = ${!INPUT_PUSH_TOKEN}"
 echo
 
 if ! $INPUT_ALLOW_FORKS; then
-  if [[ -z "$GITHUB_TOKEN" ]]; then
-    echo "Set the GITHUB_TOKEN env variable."
-    exit 1
-  fi
   URI=https://api.github.com
   API_HEADER="Accept: application/vnd.github.v3+json"
-  AUTH_HEADER="Authorization: token $GITHUB_TOKEN"
-  pr_resp=$(curl -X GET -s -H "${AUTH_HEADER}" -H "${API_HEADER}" "${URI}/repos/$GITHUB_REPOSITORY")
+  pr_resp=$(curl -X GET -s -H "${API_HEADER}" "${URI}/repos/$GITHUB_REPOSITORY")
   if [[ "$(echo "$pr_resp" | jq -r .fork)" != "false" ]]; then
     echo "Nightly merge action is disabled for forks (use the 'allow_forks' option to enable it)."
     exit 0
