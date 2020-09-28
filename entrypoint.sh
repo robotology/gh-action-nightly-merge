@@ -15,19 +15,6 @@ echo "    - user_email = $INPUT_USER_EMAIL"
 echo "    - push_token = $INPUT_PUSH_TOKEN = ${!INPUT_PUSH_TOKEN}"
 echo
 
-if [[ -z "${!INPUT_PUSH_TOKEN}" ]]; then
-  echo "Set the ${INPUT_PUSH_TOKEN} env variable."
-  exit 1
-fi
-
-FF_MODE="--no-ff"
-if $INPUT_ALLOW_FF; then
-  FF_MODE="--ff"
-  if $INPUT_FF_ONLY; then
-    FF_MODE="--ff-only"
-  fi
-fi
-
 if ! $INPUT_ALLOW_FORKS; then
   if [[ -z "$GITHUB_TOKEN" ]]; then
     echo "Set the GITHUB_TOKEN env variable."
@@ -40,6 +27,19 @@ if ! $INPUT_ALLOW_FORKS; then
   if [[ "$(echo "$pr_resp" | jq -r .fork)" != "false" ]]; then
     echo "Nightly merge action is disabled for forks (use the 'allow_forks' option to enable it)."
     exit 0
+  fi
+fi
+
+if [[ -z "${!INPUT_PUSH_TOKEN}" ]]; then
+  echo "Set the ${INPUT_PUSH_TOKEN} env variable."
+  exit 1
+fi
+
+FF_MODE="--no-ff"
+if $INPUT_ALLOW_FF; then
+  FF_MODE="--ff"
+  if $INPUT_FF_ONLY; then
+    FF_MODE="--ff-only"
   fi
 fi
 
