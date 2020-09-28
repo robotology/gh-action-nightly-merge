@@ -40,6 +40,7 @@ jobs:
 Even though this action was created to run as a scheduled workflow,
 [`on`](https://help.github.com/en/articles/workflow-syntax-for-github-actions#on)
 can be replaced by any other trigger.
+
 For example, this will run the action whenever something is pushed on the
 `master` branch:
 
@@ -48,6 +49,13 @@ on:
   push:
     branches:
       - master
+```
+
+This will add a button to the action to trigger it manually:
+
+```yml
+on:
+  workflow_dispatch:
 ```
 
 ## Parameters
