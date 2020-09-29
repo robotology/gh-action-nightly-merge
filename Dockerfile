@@ -7,7 +7,7 @@ LABEL "com.github.actions.description"="Automatically merge the stable branch in
 LABEL "com.github.actions.icon"="git-merge"
 LABEL "com.github.actions.color"="orange"
 
-RUN apk --no-cache add bash curl git jq
+RUN apk --no-cache add bash curl git git-lfs jq
 
 ADD entrypoint.sh /entrypoint.sh
 
