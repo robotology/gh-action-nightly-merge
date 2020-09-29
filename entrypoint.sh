@@ -15,7 +15,7 @@ echo "    - user_email = $INPUT_USER_EMAIL"
 echo "    - push_token = $INPUT_PUSH_TOKEN = ${!INPUT_PUSH_TOKEN}"
 echo
 
-if ! $INPUT_ALLOW_FORKS; then
+if [[ $INPUT_ALLOW_FORKS != "true" ]]; then
   URI=https://api.github.com
   API_HEADER="Accept: application/vnd.github.v3+json"
   pr_resp=$(curl -X GET -s -H "${API_HEADER}" "${URI}/repos/$GITHUB_REPOSITORY")
@@ -31,9 +31,9 @@ if [[ -z "${!INPUT_PUSH_TOKEN}" ]]; then
 fi
 
 FF_MODE="--no-ff"
-if $INPUT_ALLOW_FF; then
+if [[ "$INPUT_ALLOW_FF" == "true" ]]; then
   FF_MODE="--ff"
-  if $INPUT_FF_ONLY; then
+  if [[ "$INPUT_FF_ONLY" == "true" ]]; then
     FF_MODE="--ff-only"
   fi
 fi
@@ -66,7 +66,7 @@ set -o xtrace
 git merge $FF_MODE --no-edit $INPUT_STABLE_BRANCH
 
 # Pull lfs if enabled
-if $INPUT_GIT_LFS; then
+if [[ $INPUT_GIT_LFS == "true" ]]; then
   git lfs pull
 fi
 
