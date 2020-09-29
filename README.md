@@ -28,7 +28,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Nightly Merge
-      uses: robotology/gh-action-nightly-merge@v1.3.0
+      uses: robotology/gh-action-nightly-merge@v1.3.1
       with:
         stable_branch: 'master'
         development_branch: 'devel'
