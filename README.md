@@ -28,7 +28,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Nightly Merge
-      uses: robotology/gh-action-nightly-merge@v1.3.1
+      uses: robotology/gh-action-nightly-merge@v1.3.2
       with:
         stable_branch: 'master'
         development_branch: 'devel'
@@ -80,7 +80,7 @@ Allow support for repositories that use `git lfs` (default `false`).
 ### `ff_only`
 
 Refuse to merge and exit unless the current HEAD is already up to date or the
-merge can be resolved as a fast-forward (default `false`).
+merge can't be resolved as a fast-forward (default `false`).
 Requires `allow_ff=true`.
 
 ### `allow_forks`
