@@ -10,6 +10,7 @@ echo "    - allow_ff = $INPUT_ALLOW_FF"
 echo "    - allow_git_lfs = $INPUT_GIT_LFS"
 echo "    - ff_only = $INPUT_FF_ONLY"
 echo "    - allow_forks = $INPUT_ALLOW_FORKS"
+echo "    - merge_opts = $INPUT_MERGE_OPTS"
 echo "    - user_name = $INPUT_USER_NAME"
 echo "    - user_email = $INPUT_USER_EMAIL"
 echo "    - push_token = $INPUT_PUSH_TOKEN = ${!INPUT_PUSH_TOKEN}"
@@ -63,7 +64,7 @@ echo
 set -o xtrace
 
 # Do the merge
-git merge $FF_MODE --no-edit $INPUT_STABLE_BRANCH
+git merge $FF_MODE $INPUT_MERGE_OPTS --no-edit $INPUT_STABLE_BRANCH
 
 # Pull lfs if enabled
 if [[ $INPUT_GIT_LFS == "true" ]]; then

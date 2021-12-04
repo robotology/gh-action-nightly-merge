@@ -87,6 +87,10 @@ Requires `allow_ff=true`.
 
 Allow action to run on forks (default `false`).
 
+### `merge_opts`
+
+Specify any additional options to the git merge command (default `""`).
+
 ### `user_name`
 
 User name for git commits (default `GitHub Nightly Merge Action`).

@@ -29,6 +29,10 @@ inputs:
     description: 'Allow action to run on forks'
     required: false
     default: false
+  merge_opts:
+    description: 'Additional options for git merge command'
+    required: false
+    default: ''
   user_name:
     description: 'User name for git commits'
     required: false
