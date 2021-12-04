@@ -33,6 +33,14 @@ inputs:
     description: 'Additional options for git merge command'
     required: false
     default: ''
+  on_success_trigger:
+    description: 'Trigger another workflow action if we successfully merged something (requires on_success_trigger_ref)'
+    required: false
+    default: ''
+  on_success_trigger_ref:
+    description: 'Ref parameter to workflow action API.'
+    required: false
+    default: 'master'
   user_name:
     description: 'User name for git commits'
     required: false
