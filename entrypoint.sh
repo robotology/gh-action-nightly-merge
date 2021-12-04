@@ -80,6 +80,7 @@ if [ $? -eq 0 ] && [ "x$INPUT_ON_SUCCESS_TRIGGER" != "x" ] ; then
   curl \
     -X POST \
     -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token ${!INPUT_PUSH_TOKEN}" \
     "https://api.github.com${INPUT_ON_SUCCESS_TRIGGER}" \
     -d "{\"ref\":\"$INPUT_ON_SUCCESS_TRIGGER_REF\"}"
 fi
