@@ -53,6 +53,10 @@ inputs:
     description: 'Environment variable containing the token to use for push'
     required: false
     default: 'GITHUB_TOKEN'
+  api_token:
+    description: 'Environment variable containing the token to use for api call for on_success_trigger'
+    required: false
+    default: 'GITHUB_TOKEN'
 runs:
   using: 'docker'
   image: 'Dockerfile'

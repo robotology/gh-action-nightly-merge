@@ -129,3 +129,8 @@ available.
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         FOO_TOKEN: ${{ secrets.FOO_TOKEN }}
 ```
+
+### `api_token`
+
+Environment variable containing the token to use for on_success_trigger api call (default
+`GITHUB_TOKEN`). Make sure to include it in your `env:` section.

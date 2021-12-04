@@ -16,6 +16,7 @@ echo "    - on_success_trigger_ref = $INPUT_ON_SUCCESS_TRIGGER_REF"
 echo "    - user_name = $INPUT_USER_NAME"
 echo "    - user_email = $INPUT_USER_EMAIL"
 echo "    - push_token = $INPUT_PUSH_TOKEN = ${!INPUT_PUSH_TOKEN}"
+echo "    - api_token = $INPUT_API_TOKEN = ${!INPUT_API_TOKEN}"
 echo
 
 if [[ $INPUT_ALLOW_FORKS != "true" ]]; then
@@ -77,10 +78,16 @@ fi
 git push origin $INPUT_DEVELOPMENT_BRANCH
 
 if [ $? -eq 0 ] && [ "x$INPUT_ON_SUCCESS_TRIGGER" != "x" ] ; then
+  if [[ -z "${!INPUT_API_TOKEN}" ]]; then
+    echo "Set the ${INPUT_API_TOKEN} env variable when using on_success_trigger."
+    exit 1
+  fi
+
   curl \
+    -sL \
     -X POST \
     -H "Accept: application/vnd.github.v3+json" \
-    -H "Authorization: token ${!INPUT_PUSH_TOKEN}" \
+    -H "Authorization: token ${!INPUT_API_TOKEN}" \
     "https://api.github.com${INPUT_ON_SUCCESS_TRIGGER}" \
     -d "{\"ref\":\"$INPUT_ON_SUCCESS_TRIGGER_REF\"}"
 fi
