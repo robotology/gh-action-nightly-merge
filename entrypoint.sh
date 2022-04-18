@@ -38,6 +38,14 @@ if [[ "$INPUT_ALLOW_FF" == "true" ]]; then
   fi
 fi
 
+# Change based from:
+# * https://github.com/robotology/gh-action-nightly-merge/compare/master...tModLoader:master#
+# * https://github.com/actions/checkout/issues/766
+# * https://github.com/robotology/gh-action-nightly-merge/issues/11#issuecomment-1100451815
+# * (docs) https://git-scm.com/docs/git-config
+# * (GITHUB_WORKSPACE) https://docs.github.com/en/actions/learn-github-actions/environment-variables
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 git remote set-url origin https://x-access-token:${!INPUT_PUSH_TOKEN}@github.com/$GITHUB_REPOSITORY.git
 git config --global user.name "$INPUT_USER_NAME"
 git config --global user.email "$INPUT_USER_EMAIL"
