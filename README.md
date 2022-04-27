@@ -87,6 +87,23 @@ Requires `allow_ff=true`.
 
 Allow action to run on forks (default `false`).
 
+### `merge_opts`
+
+Specify any additional options to the git merge command (default `""`).
+
+### `on_success_trigger`
+
+Trigger another workflow action if we successfully merged something (requires on_success_trigger_ref).
+This should be set to the github API path of the form: `/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches`.
+Workflow ID may be the file name of the workflow, eg. `my_action.yml`.
+The target action must have `workflow_dispatch:` in its `on:` section.
+More information available here: https://docs.github.com/en/rest/reference/actions#create-a-workflow-dispatch-event
+
+### `on_success_trigger_ref`
+
+Ref parameter to workflow action API (default: `'master'`).
+See the above documentation for more information.
+
 ### `user_name`
 
 User name for git commits (default `GitHub Nightly Merge Action`).
@@ -112,3 +129,8 @@ available.
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         FOO_TOKEN: ${{ secrets.FOO_TOKEN }}
 ```
+
+### `api_token`
+
+Environment variable containing the token to use for on_success_trigger api call (default
+`GITHUB_TOKEN`). Make sure to include it in your `env:` section.
