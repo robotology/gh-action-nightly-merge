@@ -39,6 +39,12 @@ if [[ "$INPUT_ALLOW_FF" == "true" ]]; then
   fi
 fi
 
+
+
+set -o xtrace
+
+
+
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
 git remote set-url origin https://x-access-token:${!INPUT_PUSH_TOKEN}@github.com/$GITHUB_REPOSITORY.git
 git config --global user.name "$INPUT_USER_NAME"
