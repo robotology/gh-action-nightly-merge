@@ -49,8 +49,8 @@ git config --global --add safe.directory "$GITHUB_WORKSPACE"
 #git remote set-url origin https://${GITHUB_ACTOR}:${!INPUT_PUSH_TOKEN}@github.com/$GITHUB_REPOSITORY.git
 git config --global user.name "$INPUT_USER_NAME"
 git config --global user.email "$INPUT_USER_EMAIL"
-
 set -o xtrace
+git remote show remote origin
 
 git fetch origin $INPUT_STABLE_BRANCH
 (git checkout $INPUT_STABLE_BRANCH && git pull)||git checkout -b $INPUT_STABLE_BRANCH origin/$INPUT_STABLE_BRANCH
