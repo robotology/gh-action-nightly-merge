@@ -18,7 +18,8 @@ echo
 if [[ $INPUT_ALLOW_FORKS != "true" ]]; then
   URI=https://api.github.com
   API_HEADER="Accept: application/vnd.github.v3+json"
-  pr_resp=$(curl -X GET -s -H "${API_HEADER}" "${URI}/repos/$GITHUB_REPOSITORY")
+  AUTH_HEADER=$([ -z "${GITHUB_TOKEN}" ] && echo 'foo: bar' || echo "Authorization: bearer ${GITHUB_TOKEN}")
+  pr_resp=$(curl -X GET -s -H "${AUTH_HEADER}" -H "${API_HEADER}" "${URI}/repos/$GITHUB_REPOSITORY")
   if [[ "$(echo "$pr_resp" | jq -r .fork)" != "false" ]]; then
     echo "Nightly merge action is disabled for forks (use the 'allow_forks' option to enable it)."
     exit 0
