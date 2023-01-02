@@ -112,3 +112,7 @@ available.
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         FOO_TOKEN: ${{ secrets.FOO_TOKEN }}
 ```
+
+## Maintainer
+
+* Silvio Traversaro ([@traversaro](https://github.com/traversaro))
