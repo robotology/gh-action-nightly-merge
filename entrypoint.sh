@@ -37,6 +37,10 @@ if [[ "$INPUT_ALLOW_FF" == "true" ]]; then
   if [[ "$INPUT_FF_ONLY" == "true" ]]; then
     FF_MODE="--ff-only"
   fi
+else
+  if [[ "$INPUT_FF_ONLY" == "true" ]]; then
+    echo "ff_only specified, but allow_ff isn't please update the options to make them consistent"
+    exit 1
 fi
 
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
