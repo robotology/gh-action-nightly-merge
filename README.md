@@ -30,7 +30,7 @@ jobs:
         fetch-depth: 0 # Full clone necessary for proper merge
 
     - name: Nightly Merge
-      uses: robotology/gh-action-nightly-merge@v1.4.0
+      uses: robotology/gh-action-nightly-merge@v1.5.2
       with:
         stable_branch: 'master'
         development_branch: 'devel'
