@@ -27,7 +27,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # full clone
+        fetch-depth: 0 # Full clone necessary for proper merge
 
     - name: Nightly Merge
       uses: robotology/gh-action-nightly-merge@v1.4.0
